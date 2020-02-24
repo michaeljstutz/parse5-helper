@@ -1,0 +1,37 @@
+{
+  "name": "parse5-helper",
+  "version": "0.0.0",
+  "description": "Parse5 helper functions",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "rollup --config",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeljstutz/parse5-helper.git"
+  },
+  "keywords": [
+    "parse5",
+    "helper",
+    "utils"
+  ],
+  "author": "Michael Stutz <michaeljstutz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaeljstutz/parse5-helper/issues"
+  },
+  "homepage": "https://github.com/michaeljstutz/parse5-helper#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.8.4",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "jest": "^25.1.0",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-uglify": "^6.0.4"
+  },
+  "dependencies": {
+    "parse5": "^4.0.0",
+    "ramda": "^0.27.0"
+  }
+}
