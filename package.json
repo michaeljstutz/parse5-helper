@@ -1,0 +1,31 @@
+{
+  "name": "parse5-helper",
+  "version": "0.9.0",
+  "description": "Parse5 helper functions",
+  "main": "src/lib/index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeljstutz/parse5-helper.git"
+  },
+  "keywords": [
+    "parse5",
+    "helper",
+    "utils"
+  ],
+  "author": "Michael Stutz <michaeljstutz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaeljstutz/parse5-helper/issues"
+  },
+  "homepage": "https://github.com/michaeljstutz/parse5-helper#readme",
+  "devDependencies": {
+    "jest": "^25.4.0",
+    "parse5": "^6.0.0"
+  },
+  "dependencies": {
+    "ramda": "^0.27.0"
+  }
+}
