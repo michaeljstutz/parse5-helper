@@ -11,82 +11,142 @@ npm install --save parse5-helper
 ## Sample
 
 ```
-const PH = require('parse5-helper');
+
+const ph = require('parse5-helper');
 
 // Returns node with childNodes
-const doc = PH.autoParse('<div>sample</div>');
+const doc = ph.autoParse('<div>sample</div>');
 
 // Convert branched object into array of nodes
-const nodes = PH.getNodes(doc); // Returns an array of nodes
+const nodes = ph.getNodes(doc); // Returns an array of nodes
+
 ```
 
 ## Methods
 
-append
+adoptAttributes
 
-appendChildNode
-
-arrayReducerFn
-
-attributesOf
+appendChild
 
 autoParse
 
-createFragment
+createCommentNode
 
-createNode
+createDocument
 
-createTextNode
+createDocumentFragment
 
-flatten
+createElement
+
+detachNode
+
+findAll
+
+findOne
+
+firstNodeByTag
 
 getAttribute
 
 getAttributes
 
-getAttrs
+getAttrList
+
+getChildNodes
+
+getClassList
+
+getCommentNodeContent
+
+getDocumentMode
+
+getDocumentTypeNodeName
+
+getDocumentTypeNodePublicId
+
+getDocumentTypeNodeSystemId
+
+getFirstChild
+
+getNamespaceURI
 
 getNodeById
 
 getNodes
 
+getNodesByClass
+
 getNodesByTag
 
-getText
+getNodeSourceCodeLocation
 
-isDocument
+getOptions
+
+getParentNode
+
+getTagName
+
+getTemplateContent
+
+getTextNodeContent
+
+getTextNodes
+
+hasClassMatch
+
+insertBefore
+
+insertText
+
+insertTextBefore
+
+isCommentNode
+
+isDocumentHtml
+
+isDocumentTypeNode
+
+isElementNode
+
+isIdMatch
+
+isTagMatch
+
+isTextNode
+
+options_
 
 parse
 
 parseFragment
 
-prepend
-
-reduceNodes
-
-reduceNodesByTag
-
-remove
+prependChild
 
 removeAttribute
 
-replace
+replaceNode
 
 serialize
 
 setAttribute
 
-setParentNode
+setDocumentMode
 
-setText
+setDocumentType
 
-stringify
+setNodeParent
 
-textOf
+setNodeSourceCodeLocation
+
+setOptions
+
+setTemplateContent
 
 toAttrs
 
+updateNodeSourceCodeLocation
+
 ## Credit
 
->This project is based off of the utils package available https://www.npmjs.com/package/parse5-utils
+>This project was inspired by the utils package available @ https://www.npmjs.com/package/parse5-utils
 
