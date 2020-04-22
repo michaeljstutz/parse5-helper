@@ -1,6 +1,14 @@
 # Parse5 Helper Changelog
 
-## 1.0.0, Initial release
+## 0.10.0, Release
+
+* For all custom functions the doc or node is the last param to the function making it more curry friendly
+
+> This is a breaking change! you have been warned...
+
+* Changed the hasClassMatch function to use includes rather then find
+
+## 0.9.0, Initial release
 
 ### Notes:
 
