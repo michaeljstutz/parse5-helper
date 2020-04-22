@@ -65,41 +65,41 @@ describe('parse5-helper', () => {
     });
   });
 
-  describe('.setAttribute(node, name, value)', () => {
+  describe('.setAttribute(name, value, node)', () => {
     it('should change an attribute', () => {
       const frag = ph.parseFragment('<link rel="stylesheet">');
       const node = frag.childNodes[0];
-      ph.setAttribute(node, 'rel', 'import');
+      ph.setAttribute('rel', 'import', node);
       expect(ph.serialize(frag)).toEqual('<link rel="import">');
     });
 
     it('should add an attribute', () => {
       const frag = ph.parseFragment('<link rel="stylesheet">');
       const node = frag.childNodes[0];
-      ph.setAttribute(node, 'href', 'file.css');
+      ph.setAttribute('href', 'file.css', node);
       expect(ph.serialize(frag)).toEqual('<link rel="stylesheet" href="file.css">');
     });
   });
 
-  describe('.getAttribute(node, name)', () => {
+  describe('.getAttribute(name, node)', () => {
     it('should get the attribute', () => {
       const frag = ph.parseFragment('<link rel="stylesheet">');
       const node = frag.childNodes[0];
-      expect(ph.getAttribute(node, 'rel')).toEqual('stylesheet');
+      expect(ph.getAttribute('rel', node)).toEqual('stylesheet');
     });
 
     it('should return undefined', () => {
       const frag = ph.parseFragment('<link rel="stylesheet">');
       const node = frag.childNodes[0];
-      expect(ph.getAttribute(node, 'class')).toBeUndefined();;
+      expect(ph.getAttribute('class', node)).toBeUndefined();;
     });
   });
 
-  describe('.removeAttribute(node, name)', () => {
+  describe('.removeAttribute(name, node)', () => {
     it('should remove the attribute', () => {
       const frag = ph.parseFragment('<link rel="stylesheet">');
       const node = frag.childNodes[0];
-      ph.removeAttribute(node, 'rel');
+      ph.removeAttribute('rel', node);
       expect(ph.serialize(frag)).toEqual('<link>');
     });
   });
@@ -136,12 +136,12 @@ describe('parse5-helper', () => {
     });
   });
 
-  describe('.replaceNode(oldNode, newNode)', () => {
+  describe('.replaceNode(newNode, oldNode)', () => {
     it('should replace a node', () => {
       const frag = ph.parseFragment('<script>a && b</script');
       const script = ph.getFirstChild(frag);
       const text = ph.getFirstChild(script);
-      ph.replaceNode(text, ph.createElement('a'));
+      ph.replaceNode(ph.createElement('a'), text);
       expect(ph.serialize(frag)).toEqual('<script><a></a></script>');
     });
   });

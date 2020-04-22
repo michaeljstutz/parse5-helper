@@ -158,7 +158,7 @@ module.exports = function(parse5, options = {}) {
   );
 
   const getAttribute = 
-  ph.getAttribute = R.curry((node, name) => {
+  ph.getAttribute = R.curry((name, node) => {
     const attributes = getAttributes(node);
     return attributes[name] || undefined;
   });
@@ -178,7 +178,7 @@ module.exports = function(parse5, options = {}) {
   ph.isIdMatch = R.curry((id, node) => R.propEq('id', id, getAttributes(node)));
 
   const hasClassMatch =
-  ph.hasClassMatch = R.curry((name, node) => R.find((value) => value === name, getClassList(node)) || false);
+  ph.hasClassMatch = R.curry((name, node) => R.includes(name, getClassList(node)));
 
   const findOne =
   ph.findOne = R.curry((test, nodes) => {
@@ -226,10 +226,10 @@ module.exports = function(parse5, options = {}) {
   ph.getNodeById = R.curry((id, doc) => findOne(isIdMatch(id), doc));
 
   const setNodeParent = 
-  ph.setNodeParent = R.curry((node, parent) => node.parentNode = parent);
+  ph.setNodeParent = R.curry((parent, node) => node.parentNode = parent);
 
   const setAttribute = 
-  ph.setAttribute = R.curry((node, name, value) => {
+  ph.setAttribute = R.curry((name, value, node) => {
     const attrs = node.attrs = getAttrList(node);
     const attr = R.find(R.propEq('name', name), attrs);
 
@@ -255,16 +255,16 @@ module.exports = function(parse5, options = {}) {
   });
 
   const removeAttribute = 
-  ph.removeAttribute = R.curry((node, name) => {
+  ph.removeAttribute = R.curry((name, node) => {
     const attrs = getAttrList(node);
     node.attrs = attrs.filter((attr) => attr.name !== name);
   });
 
   const replaceNode = 
-  ph.replaceNode = R.curry((original, node) => {
-    const parent = getParentNode(original);
-    insertBefore(parent, node, original);
-    detachNode(original);
+  ph.replaceNode = R.curry((newNode, node) => {
+    const parent = getParentNode(node);
+    insertBefore(parent, newNode, node);
+    detachNode(node);
   });
 
   const toAttrs = 
